@@ -1,6 +1,8 @@
-// ==== old Gifs ===
+// === assignment with gifs ====
 //creating a variable for the 
-   var topics = ["manchester united","Chelsea","arsenal","tottenham","Everton","Sunderland","Germany"];
+   var topics = ["jimmy fallon","Chelsea Handler","jimmy kimmel","james corden","letterman",
+   "trevor noah","chris rock","john oliver","whoopi Goldber","will ferrel","john stewart",
+   "jonah hill","seinfeld","kevin hurt","Conan O'Brien"];
    //gif api key
    var ApiKey = "dc6zaTOxFJmzC";
    // create a function that will display our content on the html with the
@@ -36,27 +38,41 @@
 // lets create a button for our function.
     function createBtn(){
       // lets empty our content before we create new one
-         $("#clubs-view").empty();
+         $("#comedian-view").empty();
       for (var i = 0; i < topics.length; i++) {
         var newBtn = $("<button>");
-        newBtn.addClass("club");
+        newBtn.addClass("comedian ");
         newBtn.attr("data-name",topics[i]);
         newBtn.text(topics[i]);
-        $("#clubs-view").append(newBtn);
+        $("#comedian-view").append(newBtn);
       }
     }
+
+    function gifState () {
+    var state = $(this).attr('data-name');
+
+    if (state == 'still'){
+            $(this).attr('src', $(this).data('animate'));
+            $(this).attr('data-name', 'animate');
+        }else{
+            $(this).attr('src', $(this).data('still'));
+            $(this).attr('data-name', 'still');
+        }
+    };
+
 //a function that will add a club when a button is clicked
-    $("#add-soccerClub").on("click", function(event) {
+    $("#add-comedian").on("click", function(event) {
       event.preventDefault();
-      $("#clubs-view").empty();
         // This line of code will grab the input from the textbox
-        var club= $("#soccer-input").val();
+        var comedian = $("#comedy-input").val();
         // The movie from the textbox is then added to our array
-        topics.push(club);
+        topics.push(comedian);
         // Calling renderButtons which handles the processing of our movie array
         createBtn();
       });
+
 // Adding click event listeners to all elements with a class of "movie"
-$(document).on("click",".club", displaySoccerClub);
+$(document).on("click",".comedian", displaySoccerClub);
+$(document).on('click',gifState);
       // Calling the renderButtons function to display the intial buttons
       createBtn();
