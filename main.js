@@ -1,8 +1,8 @@
 // === assignment with gifs ====
-//creating a variable for the 
-   var topics = ["jimmy fallon","Chelsea Handler","jimmy kimmel","james corden","letterman",
-   "trevor noah","chris rock","john oliver","whoopi Goldber","will ferrel","john stewart",
-   "jonah hill","seinfeld","kevin hart","Conan O'Brien"];
+//creating array that will be changed later to button
+var topics = ["jimmy fallon","Chelsea Handler","jimmy kimmel","james corden","letterman",
+"trevor noah","chris rock","john oliver","whoopi Goldber","will ferrel","john stewart",
+"jonah hill","seinfeld","kevin hart","Conan O'Brien"];
    //gif api key
    var ApiKey = "dc6zaTOxFJmzC";
    // create a function that will display our content on the html with the
@@ -20,34 +20,43 @@
           //getting the data from the response
           var result = response.data;
           //creating a div that will hpold our variable
-          var gifDiv = $("<div class='newDiv'>");
+          var newDiv = $("<div>");
           //looping through our variable
           for(var i = 0; i < result.length; i++){
-            var p = $("<p>").text("Rating: " + result[i].rating);
+            // create a paragraph to hold our rating variable
+            var p = $("<p>");
+            // show our rating 
+            p.text("Rating: " + result[i].rating);
+            //create an image tag
             var img = $("<img>");
-           img.addClass("picture");
+            //add class to our image
+            img.addClass("picture");
+            // show our image
             img.attr("src", result[i].images.fixed_height.url);
-            gifDiv.prepend(p);
-            gifDiv.prepend(img);
-            $("#gifs-appear-here").prepend(gifDiv);
+            // prepend the paragraph a
+            newDiv.prepend(p);
+            // prepend the image
+            newDiv.prepend(img);
+            // dump this to our html
+            $("#gifs-appear-here").prepend(newDiv);
           }
 
         });
       
     }
 
-    // if (text == 0) {
+    // if ( #comedy-input == "null") {
     //   alert("please enter your a comedian");
 
-    // } else {
-
-    // }
+    // };
 
 // lets create a button for our function.
-    function createBtn(){
+function createBtn(){
       // lets empty our content before we create new one
-         $("#comedian-view").empty();
+      $("#comedian-view").empty();
+      //loop through our topics variable
       for (var i = 0; i < topics.length; i++) {
+        
         var newBtn = $("<button>");
         newBtn.addClass("comedian ");
         newBtn.attr("data-name",topics[i]);
@@ -56,32 +65,31 @@
       }
     }
 
-    
     function gifState () {
-    var state = $(this).attr('data-name');
+      var state = $(this).attr('data-name');
 
-    if (state == 'still'){
-            $(this).attr('src', $(this).data('animate'));
-            $(this).attr('data-name', 'animate');
-        }else{
-            $(this).attr('src', $(this).data('still'));
-            $(this).attr('data-name', 'still');
-        }
+      if (state == 'still'){
+        $(this).attr('src', $(this).data('animate'));
+        $(this).attr('data-name', 'animate');
+      }else{
+        $(this).attr('src', $(this).data('still'));
+        $(this).attr('data-name', 'still');
+      }
     };
 
 //a function that will add a club when a button is clicked
-    $("#add-comedian").on("click", function(event) {
-      event.preventDefault();
+$("#add-comedian").on("click", function(event) {
+  event.preventDefault();
         // This line of code will grab the input from the textbox
         var comedian = $("#comedy-input").val();
-        // The movie from the textbox is then added to our array
+        // lets added our comedians
         topics.push(comedian);
-        // Calling renderButtons which handles the processing of our movie array
+        // Calling createBtns which handles our array
         createBtn();
       });
 
 // Adding click event listeners to all elements with a class of "movie"
 $(document).on("click",".comedian", displaySoccerClub);
-$(document).on('click',gifState);
+//$(document).on('click',gifState);
       // Calling the renderButtons function to display the intial buttons
       createBtn();

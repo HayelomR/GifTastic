@@ -3,6 +3,13 @@ body{
   /* background-image: url("images/comedy.jpg")
    background-image:opacity 0.9;*/
 }
+.jumbotron{
+	margin-top: 10px;
+	padding: 20px;
+	height:200px;
+	background-color: #2F4F4F; 
+	color: white;
+}
 img{
     width: 336px;
     height: 264px;
@@ -11,7 +18,7 @@ h1{
 	font-family: 'Tangerine', cursive;
 	font-size: 34px;
 	text-align: center;
-	padding: 15px 25px;
+	padding: 15px;
 	font-weight: bolder;
 	
 }
