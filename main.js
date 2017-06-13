@@ -2,16 +2,16 @@
 //creating a variable for the 
    var topics = ["jimmy fallon","Chelsea Handler","jimmy kimmel","james corden","letterman",
    "trevor noah","chris rock","john oliver","whoopi Goldber","will ferrel","john stewart",
-   "jonah hill","seinfeld","kevin hurt","Conan O'Brien"];
+   "jonah hill","seinfeld","kevin hart","Conan O'Brien"];
    //gif api key
    var ApiKey = "dc6zaTOxFJmzC";
    // create a function that will display our content on the html with the
    function displaySoccerClub(){
-    //$("#clubs-view").empty();
-    var groups = $(this).attr("data-name");
+    $("#gifs-appear-here").empty();
+    var comics = $(this).attr("data-name");
       // Constructing a queryURL using the topics name
       var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-      groups + "&api_key=dc6zaTOxFJmzC&limit=10";
+      comics + "&api_key=dc6zaTOxFJmzC&limit=10";
       // Performing an AJAX request with the queryURL
       $.ajax({
         url: queryURL,
@@ -19,12 +19,13 @@
       }) .done(function(response) {
           //getting the data from the response
           var result = response.data;
-          //creating a div that will hpold pur variable
+          //creating a div that will hpold our variable
           var gifDiv = $("<div class='newDiv'>");
           //looping through our variable
           for(var i = 0; i < result.length; i++){
             var p = $("<p>").text("Rating: " + result[i].rating);
             var img = $("<img>");
+           img.addClass("picture");
             img.attr("src", result[i].images.fixed_height.url);
             gifDiv.prepend(p);
             gifDiv.prepend(img);
@@ -34,6 +35,13 @@
         });
       
     }
+
+    // if (text == 0) {
+    //   alert("please enter your a comedian");
+
+    // } else {
+
+    // }
 
 // lets create a button for our function.
     function createBtn(){
@@ -48,6 +56,7 @@
       }
     }
 
+    
     function gifState () {
     var state = $(this).attr('data-name');
 
