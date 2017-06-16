@@ -1,20 +1,21 @@
 body{
 /*	background-color: #778899;*/
-  /* background-image: url("images/comedy.jpg")
-   background-image:opacity 0.9;*/
+
+   /*background-image: url("images/comedy.jpg");*/
+ 
 }
-.jumbotron{
+* {
+  box-sizing: border-box;
+}
+.jumbotron {
 	margin-top: 10px;
 	padding: 20px;
 	height:200px;
 	background-color: #2F4F4F; 
 	color: white;
 }
-img{
-    width: 336px;
-    height: 264px;
-}
-h1{
+
+h1 {
 	font-family: 'Tangerine', cursive;
 	font-size: 34px;
 	text-align: center;
@@ -22,20 +23,38 @@ h1{
 	font-weight: bolder;
 	
 }
+.picture{
+	float: left;
+    width: 150px;
+    height: 110px;
+    margin-bottom: 20px;
+    
+    
+}
+.rating-holder{
+float:left;
+/* background-position:center top;*/
+padding: 0px;
+margin-bottom: 0%;
+color: red;
+}
 .input{
+	clear: both;
 	font-weight: bolder;
 	font-family: 'Tangerine', cursive;
 	color: white;
 	font-size: 24px;
 }
-#comedy-input{
-	margin-left: 10px;
+
+#comedy-input {
+	margin-left: 15px;
 }
-.favorite{
+.favorite {
 	font-size: 24px;
 }
 .comedian{
 	margin-right: 10px;
+	margin-top: 1px;
 	font-size: 18px;
 	margin-bottom: 10px;
 	color: #fff;
@@ -44,15 +63,19 @@ h1{
 
 	
 }
-#comedian-view{
+
+#comedian-view {
 	margin-bottom: 10px;
 }
-#add-comedian{
 
-	margin-top: 10px;
+#add-comedian {
+	float: right;
+    margin-top: -40px;
+	margin-right: 35%;
 	margin-bottom: 10px;
 	font-size: 18px;
 }
+
 .footer {
   position: fixed;
   bottom: 0;
