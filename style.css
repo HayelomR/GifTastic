@@ -1,9 +1,4 @@
-body{
-/*	background-color: #778899;*/
 
-   /*background-image: url("images/comedy.jpg");*/
- 
-}
 * {
   box-sizing: border-box;
 }
@@ -33,10 +28,8 @@ h1 {
 }
 .rating-holder{
 float:left;
-/* background-position:center top;*/
 padding: 0px;
 margin-bottom: 0%;
-color: red;
 }
 .input{
 	clear: both;
@@ -60,8 +53,6 @@ color: red;
 	color: #fff;
 	background-color: #4CAF50;
 	border-radius: 15px;
-
-	
 }
 
 #comedian-view {
@@ -81,7 +72,6 @@ color: red;
   bottom: 0;
   width: 100%;
   text-align: center;
-  /* Set the fixed height of the footer here */
   height: 50px;
   background-color: #666666;
 }
