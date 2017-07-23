@@ -5,8 +5,9 @@ var topics = ["jimmy Fallon","Chelsea Handler","jimmy kimmel","james corden","le
 "Jonah hill","Seinfeld","kevin hart","Conan O'Brien"];
    //giphy api key
    var ApiKey = "dc6zaTOxFJmzC";
-   // create a function that will display our content on the html with the
+   // create a function that will display our content on the html 
    function showComics(){
+    //lets empty our box before we start creating new buttons and variables
     $("#giphy").empty();
     var comics = $(this).attr("data-name");
       // Constructing a queryURL using the topics name
@@ -57,7 +58,7 @@ var topics = ["jimmy Fallon","Chelsea Handler","jimmy kimmel","james corden","le
       
     }
 
-// Function for starting and stoping the giphy sound
+// Function for starting and stoping the giphy motion
 function startAndStop () {
   var state = $(this).attr("data-state");
 
@@ -69,35 +70,35 @@ function startAndStop () {
     $(this).attr("data-state","still");
   }
 };
-    
 
-// lets create a button for our function.
+
+// lets create a button for the variables that will be created.
 function createBtn(){
-      // lets empty our content before we create new one
-      $("#comedian-view").empty();
-      //loop through our topics variable
-      for (var i = 0; i < topics.length; i++) {
-        // create button
-        var newBtn = $("<button>");
-        //add class to button
-        newBtn.addClass("comedian ");
-        //attirbutes to new button
-        newBtn.attr("data-name",topics[i]);
-        //add text to new button
-        newBtn.text(topics[i]);
-        //append the button
-        $("#comedian-view").append(newBtn);
-      }
-    }
+    // lets empty our content before we create new one
+    $("#comedian-view").empty();
+    //loop through our topics variable
+    for (var i = 0; i < topics.length; i++) {
+    // create button
+    var newBtn = $("<button>");
+    //add class to button
+    newBtn.addClass("comedian ");
+      //attirbutes to new button
+    newBtn.attr("data-name",topics[i]); //add text to new button
+    newBtn.text(topics[i]);
+    //append the button
+    $("#comedian-view").append(newBtn);
+  }
+};
 
-    
+
 //a function that will add a picture when a button is clicked
 $("#add-comedian").on("click", function(event) {
   event.preventDefault();
   // if ( #comedy-input == 0) {
-  //     alert("please enter your a comedian");
+  //     return false
 
   //   };
+
         // This line of code will grab the input from the textbox
         var comedian = $("#comedy-input").val();
         // lets added our comedians
@@ -106,9 +107,8 @@ $("#add-comedian").on("click", function(event) {
         createBtn();
       });
 
-// Adding click event listeners to all elements with a class of "movie"
+// Adding click event listeners to all elements with their respective classs.
 $(document).on("click",".comedian", showComics);
 $(document).on("click", ".picture", startAndStop);
-// $(document).on('click',gifState);
-      // Calling the renderButtons function to display the intial buttons
-      createBtn();
+// Calling the renderButtons function to display the intial buttons
+createBtn();
